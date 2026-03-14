@@ -35,9 +35,7 @@ class CompleteSentimentScraper:
         self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36'}
         self.today = datetime.now().date()
 
-    # ==========================================
-    # 2. THE SCRAPERS (Fully written out)
-    # ==========================================
+    # Scrappers for each source
     def scrape_dawn(self):
         news = []
         try:
