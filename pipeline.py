@@ -28,7 +28,7 @@ from config import (
     KSE30_STOCKS, SENTIMENT_CSV, SOURCE_WEIGHTS
 )
 from scrappers.psx_official import get_announcements
-from scrappers.news_sentiment import get_gemini_sentiment, score_all_tickers
+from scrappers.Gemini_Sentiment import get_gemini_sentiment, score_all_tickers
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────
