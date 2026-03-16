@@ -28,7 +28,7 @@ from config import (
     KSE30_STOCKS, SENTIMENT_CSV, SOURCE_WEIGHTS
 )
 from scrappers.psx_official import get_announcements
-from scrappers.Gemini_Sentiment import get_gemini_sentiment, score_all_tickers
+from scrappers.Gemini_Sentiment import score_all_tickers
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────
@@ -55,19 +55,20 @@ def _save(df: pd.DataFrame):
 
 
 def _weighted_merge(psx_score: float, psx_weight: float,
-                    gemini_score: float, gemini_weight: float) -> float:
+                    news_score: float, news_weight: float) -> float:
     """
-    Weighted average of PSX rule-based score and Gemini score.
-    If PSX score is 0.0 (no announcement or neutral event), Gemini dominates.
+    Weighted average of PSX rule-based score and news sentiment score.
+    If PSX score is 0.0 (no announcement or neutral event), news score dominates.
     If both have signal, weight them by source trust.
+    News source can be groq_tavily, gemini_news, or neutral.
     """
     total_weight = 0.0
     total_score  = 0.0
     if psx_score != 0.0:
         total_score  += psx_score * psx_weight
         total_weight += psx_weight
-    total_score  += gemini_score * gemini_weight
-    total_weight += gemini_weight
+    total_score  += news_score * news_weight
+    total_weight += news_weight
     return round(total_score / total_weight, 4) if total_weight > 0 else 0.0
 
 
@@ -93,20 +94,20 @@ def run_daily(tickers: list[str] = None, skip_gemini: bool = False):
         anns = get_announcements(ticker, from_date=today_str, to_date=today_str, max_pages=2)
         ann_by_ticker[ticker] = anns
 
-    # Step 2: Gemini news scores for all tickers
-    gemini_results: dict[str, dict] = {}
+    # Step 2: News sentiment scores for all tickers (Tavily+Groq or fallback)
+    news_results: dict[str, dict] = {}
     if not skip_gemini:
-        print(f"\n[2/2] Querying Gemini for {len(tickers)} tickers...")
+        print(f"\n[2/2] Querying news sentiment for {len(tickers)} tickers (Tavily+Groq)...")
         for result in score_all_tickers(tickers):
-            gemini_results[result["ticker"]] = result
+            news_results[result["ticker"]] = result
     else:
-        print("\n[2/2] Gemini skipped (--no-gemini flag).")
+        print("\n[2/2] News sentiment skipped (--no-gemini flag).")
 
     # Step 3: Merge into one row per ticker
     print("\n[3/3] Merging scores...")
     for ticker in tickers:
         anns = ann_by_ticker.get(ticker, [])
-        gem  = gemini_results.get(ticker, {})
+        news = news_results.get(ticker, {})
 
         # PSX announcement signal
         if anns:
@@ -119,24 +120,28 @@ def run_daily(tickers: list[str] = None, skip_gemini: bool = False):
             ann_flag  = 0
             ann_type  = ""
 
-        gemini_score = gem.get("sentiment_score", 0.0)
+        # News sentiment score (source can be groq_tavily, gemini_news, or neutral)
+        news_score = news.get("sentiment_score", 0.0)
+        news_source = news.get("source", "neutral")
+        news_weight = SOURCE_WEIGHTS.get(news_source, 1.0)
+
         final_score  = _weighted_merge(
             psx_score,    SOURCE_WEIGHTS["psx_announcement"],
-            gemini_score, SOURCE_WEIGHTS["gemini_news"],
+            news_score,   news_weight,
         )
 
         new_rows.append({
             "Date":             today_str,
             "Ticker":           ticker,
             "sentiment_score":  final_score,
-            "sentiment_count":  gem.get("headline_count", 0) + len(anns),
+            "sentiment_count":  news.get("headline_count", 0) + len(anns),
             "announcement_flag": ann_flag,
             "announcement_type": ann_type,
-            "key_headlines":    str(gem.get("key_headlines", [])),
-            "reasoning":        gem.get("reasoning", ""),
+            "key_headlines":    str(news.get("key_headlines", [])),
+            "reasoning":        news.get("reasoning", ""),
         })
         print(f"  {ticker}: final={final_score:+.4f}  psx={psx_score:+.2f}  "
-              f"gemini={gemini_score:+.2f}  ann_flag={ann_flag}")
+              f"news={news_score:+.2f} ({news_source:12})  ann_flag={ann_flag}")
 
     new_df = pd.DataFrame(new_rows)
     combined = pd.concat([existing, new_df], ignore_index=True)

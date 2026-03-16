@@ -5,8 +5,14 @@ from bs4 import BeautifulSoup
 from datetime import date, datetime, timedelta
 import yfinance as yf
 import os
+import sys
+import io
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# Fix Unicode output on Windows
+if sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # ==========================================
 # 1. CONFIGURATION
@@ -102,7 +108,7 @@ def main():
 
     print("--- Reading Master Data ---")
     master_df = pd.read_csv(MASTER_CSV_PATH)
-    master_df['Date'] = pd.to_datetime(master_df['Date']).dt.date
+    master_df['Date'] = pd.to_datetime(master_df['Date'], format='mixed', dayfirst=True).dt.date
     
     last_date = master_df['Date'].max()
     today = date.today()

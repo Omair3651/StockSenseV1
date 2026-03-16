@@ -1,23 +1,23 @@
 """
-Gemini News Sentiment Scorer
-=============================
-Uses Gemini 2.0 Flash with Google Search grounding (free tier) to:
-  - Find recent news about each PSX ticker
-  - Score sentiment on a -1.0 to +1.0 scale
-  - Return key headlines + reasoning
+Tavily + Groq News Sentiment Scorer
+====================================
+Uses Tavily Search API (free: 1000 searches/month) to find news,
+then Groq Llama 3.3 70B (free, no rate limits) to analyze sentiment.
 
-Free tier limits (Google AI Studio):
-  - 15 requests/minute
-  - 1,000,000 tokens/day
-  For 30 tickers: ~30 calls/run — well within limits.
+Free tier costs:
+  Tavily: 1,000 free searches/month (no card required)
+          30 tickers/day = ~900 searches/month — fits comfortably in free tier
+  Groq:   Llama 3.3 70B free tier (no documented rate limits at this volume)
 
 Setup:
-  1. Get a free API key at https://aistudio.google.com/apikey
-  2. Add GEMINI_API_KEY=your_key to .env
+  1. Get Tavily API key (free): https://tavily.com
+  2. Add TAVILY_API_KEY=tvly_... to .env
+  3. Get Groq API key (free): https://console.groq.com
+  4. Add GROQ_API_KEY=gsk_... to .env
 
-Run directly to test a single ticker:
-    python scrappers/news_sentiment.py --ticker OGDC
-    python scrappers/news_sentiment.py --all
+Run:
+    python scrappers/Gemini_Sentiment.py --ticker OGDC
+    python scrappers/Gemini_Sentiment.py --all
 """
 
 import sys
@@ -26,63 +26,63 @@ import time
 import re
 import argparse
 
-sys.path.insert(0, str(__file__).replace("/scrappers/news_sentiment.py", "").replace("\\scrappers\\news_sentiment.py", ""))
-from config import GEMINI_API_KEY, KSE30_STOCKS, COMPANY_NAMES
+sys.path.insert(0, str(__file__).replace("/scrappers/Gemini_Sentiment.py", "").replace("\\scrappers\\Gemini_Sentiment.py", ""))
+from config import TAVILY_API_KEY, GROQ_API_KEY, GEMINI_API_KEY_1, GEMINI_API_KEY_2, KSE30_STOCKS, COMPANY_NAMES
 
-# ── Gemini client setup ────────────────────────────────────────────────────
+# ── API Clients ─────────────────────────────────────────────────────────────
 
-def _get_client():
-    """Initialise and return a Gemini client. Raises if key not set."""
-    if not GEMINI_API_KEY:
+def _get_tavily_client():
+    """Initialise and return a Tavily client."""
+    if not TAVILY_API_KEY:
         raise RuntimeError(
-            "GEMINI_API_KEY not set. Get a free key at https://aistudio.google.com/apikey "
-            "and add it to your .env file as GEMINI_API_KEY=..."
+            "TAVILY_API_KEY not configured. Get a free key at https://tavily.com "
+            "and add it to .env"
         )
+    try:
+        from tavily import TavilyClient
+        return TavilyClient(api_key=TAVILY_API_KEY)
+    except ImportError:
+        raise ImportError(
+            "tavily-python package not installed. Run: pip install tavily-python"
+        )
+
+
+def _get_groq_client():
+    """Initialise and return a Groq client."""
+    if not GROQ_API_KEY:
+        raise RuntimeError(
+            "GROQ_API_KEY not configured. Get a free key at https://console.groq.com "
+            "and add it to .env"
+        )
+    try:
+        from groq import Groq
+        return Groq(api_key=GROQ_API_KEY)
+    except ImportError:
+        raise ImportError(
+            "groq package not installed. Run: pip install groq"
+        )
+
+
+def _get_gemini_client():
+    """Initialise and return a Gemini client with current active key."""
+    keys = [k for k in [GEMINI_API_KEY_1, GEMINI_API_KEY_2] if k]
+    if not keys:
+        return None, None
     try:
         from google import genai
         from google.genai import types as genai_types
-        client = genai.Client(api_key=GEMINI_API_KEY)
+        client = genai.Client(api_key=keys[0])
         return client, genai_types
     except ImportError:
-        raise ImportError(
-            "google-genai package not installed. Run: pip install google-genai"
-        )
-
-
-# ── Prompt template ────────────────────────────────────────────────────────
-
-_PROMPT_TEMPLATE = """
-You are a financial analyst specialising in the Pakistan Stock Exchange (PSX).
-
-Search for the latest news and developments (last 7 days) about:
-Company: {company_name}
-Ticker: {ticker} (listed on PSX / KSE)
-
-Analyse the sentiment of this news specifically for its impact on the stock price.
-
-Return ONLY a valid JSON object with exactly these fields:
-{{
-  "sentiment_score": <float, -1.0 (very negative) to 1.0 (very positive)>,
-  "confidence": <float, 0.0 to 1.0>,
-  "headline_count": <int, number of relevant news items found>,
-  "key_headlines": [<up to 3 most relevant headline strings>],
-  "reasoning": "<one sentence explaining the score>"
-}}
-
-Rules:
-- sentiment_score of 0.0 means neutral or insufficient news
-- Only include news directly relevant to this company's stock performance
-- Ignore unrelated Pakistan macro news unless it specifically impacts this sector
-- If no relevant news found, return sentiment_score: 0.0, confidence: 0.0, headline_count: 0
-""".strip()
+        return None, None
 
 
 # ── JSON extraction helper ─────────────────────────────────────────────────
 
 def _extract_json(text: str) -> dict:
     """
-    Extract JSON from Gemini response text.
-    Handles cases where Gemini wraps JSON in markdown code fences.
+    Extract JSON from LLM response text.
+    Handles cases where LLM wraps JSON in markdown code fences.
     """
     # Remove markdown code fences if present
     cleaned = re.sub(r"```(?:json)?", "", text).strip().rstrip("`").strip()
@@ -102,73 +102,174 @@ def _extract_json(text: str) -> dict:
         return {}
 
 
-# ── Core scorer ────────────────────────────────────────────────────────────
+# ── Core sentiment scorer ──────────────────────────────────────────────────
 
-def get_gemini_sentiment(ticker: str,
-                         company_name: str = None,
-                         retry: int = 2) -> dict:
+def _search_news(ticker: str, company_name: str) -> str:
     """
-    Query Gemini 2.0 Flash with Google Search grounding for a ticker's news sentiment.
+    Search for recent news about a company using Tavily.
+    Returns formatted news context for sentiment analysis.
+    """
+    try:
+        client = _get_tavily_client()
+
+        # Search for news about this company in the last 7 days
+        results = client.search(
+            query=f"{company_name} {ticker} stock PSX news",
+            include_answer=False,
+            days=7,
+            max_results=5,
+        )
+
+        # Format results into a news context string
+        if not results.get("results"):
+            return "No recent news found."
+
+        news_context = []
+        for i, result in enumerate(results["results"], 1):
+            title = result.get("title", "")
+            snippet = result.get("content", "")
+            if title:
+                news_context.append(f"{i}. {title}\n   {snippet[:200]}")
+
+        return "\n".join(news_context) if news_context else "No relevant news found."
+
+    except Exception as e:
+        print(f"  [tavily] {ticker}: search error ({str(e)[:60]})")
+        return None
+
+
+def _analyze_sentiment(ticker: str, company_name: str, news_context: str) -> dict:
+    """
+    Use Groq Llama 3.3 70B to analyze sentiment from news context.
+    """
+    try:
+        client = _get_groq_client()
+
+        prompt = f"""You are a financial analyst for Pakistan Stock Exchange (PSX).
+
+Analyze this news about {company_name} ({ticker}) for stock sentiment impact.
+
+NEWS CONTEXT (last 7 days):
+{news_context}
+
+Return ONLY valid JSON:
+{{"sentiment_score": float(-1.0 to 1.0), "confidence": float(0.0 to 1.0), "headline_count": int, "key_headlines": [list of headlines], "reasoning": "1 sentence"}}
+
+Rules: 0.0 = neutral/no news. Return score: 0.0, confidence: 0.0, count: 0 if no relevant news."""
+
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.1,
+            max_tokens=512,
+        )
+
+        raw_text = response.choices[0].message.content or ""
+        parsed = _extract_json(raw_text)
+
+        if not parsed:
+            print(f"  [groq] {ticker}: could not parse JSON from response")
+            return None
+
+        result = {
+            "ticker":          ticker,
+            "sentiment_score": float(parsed.get("sentiment_score", 0.0)),
+            "confidence":      float(parsed.get("confidence", 0.0)),
+            "headline_count":  int(parsed.get("headline_count", 0)),
+            "key_headlines":   parsed.get("key_headlines", []),
+            "reasoning":       parsed.get("reasoning", ""),
+            "source":          "groq_tavily",
+            "weight":          1.2,
+        }
+        # Clamp sentiment to [-1, 1]
+        result["sentiment_score"] = max(-1.0, min(1.0, result["sentiment_score"]))
+        return result
+
+    except Exception as e:
+        print(f"  [groq] {ticker}: error ({str(e)[:60]})")
+        return None
+
+
+def _call_gemini_fallback(ticker: str, company_name: str) -> dict:
+    """
+    Fallback to Gemini if Tavily+Groq fails.
+    """
+    try:
+        client, genai_types = _get_gemini_client()
+        if client is None:
+            return None
+
+        prompt = f"""You are a financial analyst for Pakistan Stock Exchange (PSX).
+
+Analyze recent news (last 7 days) about {company_name} ({ticker}) for stock sentiment impact.
+
+Return ONLY valid JSON:
+{{"sentiment_score": float(-1.0 to 1.0), "confidence": float(0.0 to 1.0), "headline_count": int, "key_headlines": [max 3 headlines], "reasoning": "1 sentence"}}
+
+Rules: 0.0 = neutral/no news. Return score: 0.0, confidence: 0.0, count: 0 if no relevant news."""
+
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt,
+            config=genai_types.GenerateContentConfig(
+                tools=[genai_types.Tool(google_search=genai_types.GoogleSearch())],
+                temperature=0.1,
+                max_output_tokens=512,
+            ),
+        )
+        raw_text = response.text or ""
+        parsed = _extract_json(raw_text)
+
+        if not parsed:
+            return None
+
+        result = {
+            "ticker":          ticker,
+            "sentiment_score": float(parsed.get("sentiment_score", 0.0)),
+            "confidence":      float(parsed.get("confidence", 0.0)),
+            "headline_count":  int(parsed.get("headline_count", 0)),
+            "key_headlines":   parsed.get("key_headlines", []),
+            "reasoning":       parsed.get("reasoning", ""),
+            "source":          "gemini_news",
+            "weight":          1.2,
+        }
+        result["sentiment_score"] = max(-1.0, min(1.0, result["sentiment_score"]))
+        return result
+
+    except Exception as e:
+        print(f"  [fallback] {ticker}: error ({str(e)[:60]})")
+        return None
+
+
+def get_sentiment(ticker: str, company_name: str = None) -> dict:
+    """
+    Get sentiment for a ticker using Tavily Search + Groq analysis.
+    Falls back to Gemini if primary approach fails.
 
     Returns:
         dict with keys:
             ticker, sentiment_score, confidence, headline_count,
             key_headlines, reasoning, source, weight
-        On failure returns neutral score (0.0) with error info.
     """
     if company_name is None:
         company_name = COMPANY_NAMES.get(ticker, ticker)
 
-    client, genai_types = _get_client()
-    prompt = _PROMPT_TEMPLATE.format(ticker=ticker, company_name=company_name)
+    # Step 1: Search for news using Tavily
+    news_context = _search_news(ticker, company_name)
+    if news_context is None:
+        print(f"  [fallback] {ticker}: Tavily failed, trying Gemini...")
+        result = _call_gemini_fallback(ticker, company_name)
+        return result if result else _neutral(ticker, error="all_providers_failed")
 
-    for attempt in range(1, retry + 2):
-        try:
-            response = client.models.generate_content(
-                model="gemini-2.5-flash-lite",
-                contents=prompt,
-                config=genai_types.GenerateContentConfig(
-                    tools=[genai_types.Tool(google_search=genai_types.GoogleSearch())],
-                    temperature=0.1,
-                    max_output_tokens=512,
-                ),
-            )
-            raw_text = response.text or ""
-            parsed = _extract_json(raw_text)
+    # Step 2: Analyze with Groq
+    result = _analyze_sentiment(ticker, company_name, news_context)
+    if result:
+        return result
 
-            if not parsed:
-                print(f"  [gemini] {ticker}: could not parse JSON from response. Raw: {raw_text[:200]!r}")
-                # Return neutral on parse failure
-                return _neutral(ticker, error="json_parse_failed")
-
-            result = {
-                "ticker":          ticker,
-                "sentiment_score": float(parsed.get("sentiment_score", 0.0)),
-                "confidence":      float(parsed.get("confidence", 0.0)),
-                "headline_count":  int(parsed.get("headline_count", 0)),
-                "key_headlines":   parsed.get("key_headlines", []),
-                "reasoning":       parsed.get("reasoning", ""),
-                "source":          "gemini_news",
-                "weight":          1.2,
-            }
-            # Clamp sentiment to [-1, 1]
-            result["sentiment_score"] = max(-1.0, min(1.0, result["sentiment_score"]))
-            return result
-
-        except Exception as e:
-            msg = str(e)
-            if "429" in msg or "quota" in msg.lower():
-                wait = 60 * attempt
-                print(f"  [gemini] {ticker}: rate limit hit, waiting {wait}s...")
-                time.sleep(wait)
-            elif attempt <= retry:
-                print(f"  [gemini] {ticker}: attempt {attempt} failed ({msg}), retrying...")
-                time.sleep(5 * attempt)
-            else:
-                print(f"  [gemini] {ticker}: all attempts failed. Error: {msg}")
-                return _neutral(ticker, error=msg[:100])
-
-    return _neutral(ticker, error="max_retries_exceeded")
+    # Fallback to Gemini if Groq analysis fails
+    print(f"  [fallback] {ticker}: Groq analysis failed, trying Gemini...")
+    result = _call_gemini_fallback(ticker, company_name)
+    return result if result else _neutral(ticker, error="all_providers_failed")
 
 
 def _neutral(ticker: str, error: str = "") -> dict:
@@ -179,22 +280,21 @@ def _neutral(ticker: str, error: str = "") -> dict:
         "headline_count":  0,
         "key_headlines":   [],
         "reasoning":       f"No data (error: {error})" if error else "No relevant news found.",
-        "source":          "gemini_news",
-        "weight":          1.2,
+        "source":          "neutral",
+        "weight":          1.0,
     }
 
 
 # ── Batch scorer ───────────────────────────────────────────────────────────
 
-def score_all_tickers(tickers: list[str] = None,
-                      delay_seconds: float = 4.5) -> list[dict]:
+def score_all_tickers(tickers: list = None, delay_seconds: float = 1.5) -> list:
     """
-    Score all tickers with Gemini.
-    Adds a delay between requests to stay within the free tier (15 req/min).
+    Score all tickers with Tavily Search + Groq analysis.
+    Adds a delay between requests as good practice.
 
     Args:
         tickers:       list of ticker symbols; defaults to all KSE30
-        delay_seconds: sleep between API calls (4.5s → ~13 req/min, safely under 15)
+        delay_seconds: sleep between API calls (1.5s is cautious)
 
     Returns:
         List of sentiment dicts, one per ticker.
@@ -206,12 +306,10 @@ def score_all_tickers(tickers: list[str] = None,
     for i, ticker in enumerate(tickers, 1):
         company = COMPANY_NAMES.get(ticker, ticker)
         print(f"  [{i}/{len(tickers)}] Scoring {ticker} ({company})...")
-        result = get_gemini_sentiment(ticker, company)
+        result = get_sentiment(ticker, company)
         results.append(result)
-        print(f"    score={result['sentiment_score']:+.2f}  "
-              f"conf={result['confidence']:.2f}  "
-              f"headlines={result['headline_count']}  "
-              f"reason: {result['reasoning'][:80]}")
+        print(f"    source={result['source']:15} score={result['sentiment_score']:+.2f}  "
+              f"conf={result['confidence']:.2f}  headlines={result['headline_count']}")
         if i < len(tickers):
             time.sleep(delay_seconds)
 
@@ -221,15 +319,22 @@ def score_all_tickers(tickers: list[str] = None,
 # ── CLI entry point ────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Gemini PSX News Sentiment Scorer")
+    parser = argparse.ArgumentParser(description="PSX News Sentiment Scorer (Tavily + Groq)")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--ticker", help="Single ticker to score (e.g. OGDC)")
     group.add_argument("--all",    action="store_true", help="Score all 30 KSE tickers")
     args = parser.parse_args()
 
     if args.ticker:
-        print(f"\n=== Gemini Sentiment: {args.ticker} ===")
-        r = get_gemini_sentiment(args.ticker)
+        import sys
+        import io
+        # Fix Unicode output on Windows
+        if sys.stdout.encoding.lower() != 'utf-8':
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+        print(f"\n=== Sentiment Score: {args.ticker} ===")
+        r = get_sentiment(args.ticker)
+        print(f"  Source          : {r['source']}")
         print(f"  Sentiment score : {r['sentiment_score']:+.2f}")
         print(f"  Confidence      : {r['confidence']:.2f}")
         print(f"  Headlines found : {r['headline_count']}")
@@ -238,10 +343,21 @@ if __name__ == "__main__":
             print(f"    - {h}")
         print(f"  Reasoning       : {r['reasoning']}")
     else:
-        print("\n=== Gemini Sentiment: All KSE30 Tickers ===")
+        import sys
+        import io
+        # Fix Unicode output on Windows
+        if sys.stdout.encoding.lower() != 'utf-8':
+            sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+        print("\n=== Sentiment Score: All KSE30 Tickers ===")
         results = score_all_tickers()
         print(f"\nSummary: {len(results)} tickers scored")
         positive = [r for r in results if r["sentiment_score"] > 0.1]
         negative = [r for r in results if r["sentiment_score"] < -0.1]
         neutral  = [r for r in results if abs(r["sentiment_score"]) <= 0.1]
         print(f"  Positive: {len(positive)}  Negative: {len(negative)}  Neutral: {len(neutral)}")
+        sources = {}
+        for r in results:
+            src = r["source"]
+            sources[src] = sources.get(src, 0) + 1
+        print(f"  Sources: {' | '.join(f'{count} {src}' for src, count in sources.items())}")

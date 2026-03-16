@@ -1,0 +1,901 @@
+Date,Ticker,sentiment_score,sentiment_count,announcement_flag,announcement_type,key_headlines,reasoning,source
+2024-04-04,ENGRO,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended Dec 31, 2023']
+",PSX other announcement,psx_announcement
+2024-04-25,ENGRO,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE FIRST QUARTER ENDED MARCH 31, 2024 (CONSOLIDATED AND STANDALONE)']
+",PSX earnings announcement,psx_announcement
+2024-04-30,ENGRO,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended March 31, 2024']
+",PSX other announcement,psx_announcement
+2024-08-20,ENGRO,0.0,1,1,other,"['Analyst Briefing Pre-Meeting Presentation H1 2024']
+",PSX other announcement,psx_announcement
+2024-08-21,ENGRO,0.0,1,1,board,"['BOARD MEETING IN PROGRESS']
+",PSX board announcement,psx_announcement
+2024-08-22,ENGRO,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE SIX MONTHS ENDED JUNE 30, 2024 (CONSOLIDATED AND STANDALONE)']
+",PSX earnings announcement,psx_announcement
+2024-10-11,ENGRO,0.0,1,1,earnings,"['Board Meeting for the Announcement of Financial Results for the Nine Months ended September 30, 2024']
+",PSX earnings announcement,psx_announcement
+2024-10-15,TGL,0.0,1,1,other,"['Corporate Briefing Session - Presentation FY2024']
+",PSX other announcement,psx_announcement
+2024-10-28,ENGRO,0.0,1,1,board,"['BOARD MEETING IN PROGRESS']
+",PSX board announcement,psx_announcement
+2024-10-29,ENGRO,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE NINE MONTHS ENDED SEPTEMBER 30, 2024 (CONSOLIDATED AND STANDALONE)']
+",PSX earnings announcement,psx_announcement
+2024-11-04,SHEL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended 2024-09-30']
+",PSX other announcement,psx_announcement
+2024-11-06,SHEL,0.0,1,1,other,"['Notice of Extraordinary General Meeting']
+",PSX other announcement,psx_announcement
+2024-11-20,ENGRO,0.6,1,1,dividend,"['Credit of Third Interim Cash Dividend']
+",PSX dividend announcement,psx_announcement
+2024-11-21,SHEL,0.0,1,1,other,"['Postal Ballot Paper']
+",PSX other announcement,psx_announcement
+2024-11-28,SHEL,0.0,1,1,other,"['Extract of Resolution Passed at Extraordinary General Meeting Held on November 27, 2024']
+",PSX other announcement,psx_announcement
+2024-12-02,ENGRO,0.0,1,1,earnings,"['EMERGENT BOARD MEETING (OTHER THAN FINANCIAL RESULTS)']
+",PSX earnings announcement,psx_announcement
+2024-12-06,ENGRO,0.0,1,1,other,"['Disclosure of Material Information']
+",PSX other announcement,psx_announcement
+2024-12-10,SHEL,0.0,1,1,earnings,"['Board Meeting Other Than Financial ResultsREVOKED']
+",PSX earnings announcement,psx_announcement
+2024-12-11,ENGRO,0.0,1,1,other,"['INDICATIVE TIMELINES FOR IMPLEMENTATION OF THE SCHEME OF ARRANGEMENT OF DAWOOD HERCULES CORPORATION LIMITED, ENGRO CORPORATION LIMITED AND DH PARTNERS']
+",PSX other announcement,psx_announcement
+2024-12-11,SHEL,0.0,1,1,earnings,"['Board Meeting Other than Financial Results']
+",PSX earnings announcement,psx_announcement
+2024-12-19,ENGRO,0.0,1,1,other,"['BOOK CLOSURE NOTICE FOR IMPLEMENTATION OF THE SCHEME OF ARRANGEMENT OF DAWOOD HERCULES CORPORATION LIMITED, ENGRO CORPORATION LIMITED AND DH PARTNERS ']
+",PSX other announcement,psx_announcement
+2024-12-26,SHEL,0.0,1,1,other,"['Response for No. PSX/ Gen-1886 dated December 20, 2024']
+",PSX other announcement,psx_announcement
+2024-12-27,ENGRO,0.0,1,1,other,"['PUBLICATION OF BOOK CLOSURE NOTICE FOR IMPLEMENTATION OF THE SCHEME OF ARRANGEMENT OF DAWOOD HERCULES CORPORATION LIMITED, ENGRO CORPORATION LIMITED A']
+",PSX other announcement,psx_announcement
+2025-01-02,TGL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2025-01-08,SHEL,0.0,1,1,other,"['DISCLOSURE OF MATERIAL INFORMATION']
+",PSX other announcement,psx_announcement
+2025-01-14,SHEL,0.0,1,1,other,"['DISCLOSURE OF MATERIAL INFORMATION']
+",PSX other announcement,psx_announcement
+2025-01-15,SHEL,0.0,1,1,other,"['DISCLOSURE OF MATERIAL INFORMATION']
+",PSX other announcement,psx_announcement
+2025-02-10,SHEL,0.0,1,1,board,"['BOARD MEETING']
+",PSX board announcement,psx_announcement
+2025-02-20,SHEL,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE ENDED DECEMBER 31, 2024']
+",PSX earnings announcement,psx_announcement
+2025-02-26,SHEL,0.0,1,1,other,"['Financial Statements for Year Ended 2024.']
+",PSX other announcement,psx_announcement
+2025-02-27,SHEL,0.0,1,1,other,"['Financials Statement for the Year Ended December 2024']
+",PSX other announcement,psx_announcement
+2025-02-27,SHEL,0.0,1,1,other,"['Financial Statements for the Year Ended December 2024']
+",PSX other announcement,psx_announcement
+2025-03-17,TGL,0.6,1,1,dividend,"['Notice of Credit of 20% Interim Cash Dividend']
+",PSX dividend announcement,psx_announcement
+2025-04-08,PAEL,0.0,1,1,other,"['Notice of Annual General Meeting dated 29-04-2025']
+",PSX other announcement,psx_announcement
+2025-04-16,FABL,0.0,1,1,other,"['Disclosure of Material Information - Termination of Acquisition Discussions']
+",PSX other announcement,psx_announcement
+2025-04-21,PAEL,0.0,1,1,board,"['Board Meeting for the 1st Quarter ended 31-03-2025']
+",PSX board announcement,psx_announcement
+2025-04-22,PSO,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-04-30,PAEL,0.0,1,1,other,"['Transmission of 1st Quarterly Report for the Period Ended 31-03-2025 (Un-Audited)']
+",PSX other announcement,psx_announcement
+2025-05-22,SYS,0.6,1,1,dividend,"['SYS | Systems Limited Credit of Final Cash Dividend for the period ended December 31,2024']
+",PSX dividend announcement,psx_announcement
+2025-06-03,BAHL,0.0,1,1,earnings,"['BAHL- Board Meeting Other Than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-07-03,UBL,0.0,1,1,board,"['Board Meeting of United Bank Limited (UBL)']
+",PSX board announcement,psx_announcement
+2025-08-04,HBL,0.0,1,1,other,"['Transmission of Half Yearly Report for the Period Ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-08-11,ATRL,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE YEAR ENDED JUNE 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-08-12,PSO,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-08-13,CHCC,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-08-13,MCB,0.0,1,1,other,"['Transmission of Half Yearly Financial Statements for the period ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-08-15,INIL,0.0,1,1,earnings,"['BOARD MEETING - OTHER THAN FINANCIAL RESULTS']
+",PSX earnings announcement,psx_announcement
+2025-08-18,BAHL,0.0,1,1,board,"['BAHL- Notice of Board Meeting for the Half Year Ended June 30, 2025']
+",PSX board announcement,psx_announcement
+2025-08-19,SYS,0.0,1,1,earnings,"['Financial Results for the Quarter Ended 30 June 2025']
+",PSX earnings announcement,psx_announcement
+2025-08-20,SYS,0.0,1,1,other,"['SYS | Systems Limited Transmission of Half Yearly Accounts for the period ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-08-21,PAEL,0.0,1,1,board,"['Board Meeting for the 2nd Quarter (Half Year) Ended 30-06-2025']
+",PSX board announcement,psx_announcement
+2025-08-22,FFC,0.0,1,1,other,"['Transmission of Half Yearly Financial Statements for the Period Ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-08-28,PAEL,0.0,1,1,earnings,"['Financial Results for the 2nd Quarter (Half Year) Ended 30-06-2025']
+",PSX earnings announcement,psx_announcement
+2025-08-29,EFERT,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-08-29,FABL,0.0,1,1,other,"['Transmission of Quarterly Report for the Second Quarter (half year) ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-08-29,NBP,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-08-29,PAEL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended 30-06-2025']
+",PSX other announcement,psx_announcement
+2025-09-03,INIL,0.0,1,1,other,"['Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-09-04,LUCK,0.0,1,1,other,"['Notice of Annual General Meeting, Form of Proxy and Ballot Paper - Lucky Cement Limited']
+",PSX other announcement,psx_announcement
+2025-09-05,LUCK,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended -June 30, 2025 - Lucky Cement Limited']
+",PSX other announcement,psx_announcement
+2025-09-08,PRL,0.0,1,1,other,"['Transmission of Annual Report for the year ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-09-09,FCCL,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended 2025-06-30']
+",PSX other announcement,psx_announcement
+2025-09-09,FCCL,0.0,1,1,other,"['Notice of 33rd Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-09-10,PPL,0.0,1,1,board,"['Meeting of the Board of Directors and Closed Period']
+",PSX board announcement,psx_announcement
+2025-09-16,OGDC,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-09-16,TGL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-09-17,CHCC,0.0,1,1,other,"['Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-09-18,CHCC,0.0,1,1,other,"['Transmission of Annual Financial Statements for the Year Ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-09-18,ILP,0.0,1,1,other,"['Publication of Notice of 33rd Annual General Meeting in Newspapers']
+",PSX other announcement,psx_announcement
+2025-09-18,ILP,0.0,1,1,other,"['Notice of 33rd Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-09-19,HUBC,0.0,1,1,other,"['Notice of Annual General Meeting - The Hub Power Company Limited']
+",PSX other announcement,psx_announcement
+2025-09-22,HUBC,0.0,1,1,other,"['Newspaper Advertisement of the Annual General Meeting Notice - The Hub Power Company Limited']
+",PSX other announcement,psx_announcement
+2025-09-25,MLCF,0.0,1,1,other,"['MLCF Transmission of Annual Financial Statements for the Year Ended 30.06.2025']
+",PSX other announcement,psx_announcement
+2025-09-25,MLCF,0.0,1,1,other,"['Notice of Annual General Meeting 16.10.2025']
+",PSX other announcement,psx_announcement
+2025-09-26,PSO,0.0,1,1,other,"['Material Information']
+",PSX other announcement,psx_announcement
+2025-09-29,LUCK,0.0,1,1,other,"['CERTIFIED TRUE COPY OF THE RESOLUTIONS PASSED IN THE 32nd ANNUAL GENERAL MEETING OF LUCKY CEMENT LIMITED U/C 5.6.9.(b) OF PSX REGULATIONS']
+",PSX other announcement,psx_announcement
+2025-09-30,ATRL,0.0,1,1,other,"['Annual General Meeting - ATRL']
+",PSX other announcement,psx_announcement
+2025-09-30,TGL,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-09-30,TGL,0.0,1,1,other,"['Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-10-01,FCCL,0.0,1,1,other,"['Extract of Resolutions Adopted in 33rd Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-10-01,PSO,0.0,1,1,other,"['Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-10-02,PSO,0.0,1,1,other,"['Transmission of Annual Report for the year ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-03,ATRL,0.0,1,1,other,"['Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-10-03,DGKC,0.0,1,1,other,"['TRANSMISSION OF ANNUAL REPORT FOR THE YEAR ENDED JUNE 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-03,OGDC,0.0,1,1,other,"['Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-10-03,PPL,0.0,1,1,other,"['Notice of Annual General Meeting 2025']
+",PSX other announcement,psx_announcement
+2025-10-03,UBL,0.0,1,1,board,"['Notice of Board Meeting and Closed Period for the Period Ended Ended September 30, 2025']
+",PSX board announcement,psx_announcement
+2025-10-06,FCCL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-06,OGDC,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-06,POL,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-06,PPL,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended 30 June 2025']
+",PSX other announcement,psx_announcement
+2025-10-06,SEARL,0.0,1,1,other,"['SEARL | The Searle Company Limited Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-10-07,SEARL,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended June 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-09,CHCC,0.0,1,1,other,"['CERTIFIED COPY OF THE RESOLUTIONS PASSED BY THE MEMBERS OF THE COMPANY AT THE ANNUAL GENERAL MEETING']
+",PSX other announcement,psx_announcement
+2025-10-10,ILP,0.0,1,1,other,"['Certified Resolution(s) passed at the 33rd Annual General Meeting of Interloop Limited']
+",PSX other announcement,psx_announcement
+2025-10-10,MLCF,0.0,1,1,board,"['MLCF-Notice of Board Meeting 17.10.2025 to PSX']
+",PSX board announcement,psx_announcement
+2025-10-10,PAEL,0.0,1,1,other,"['ELECTION OF DIRECTORS - NOTICE UNDER SECTION 159(4) OF THE COMPANIES ACT, 2017']
+",PSX other announcement,psx_announcement
+2025-10-10,TGL,0.0,1,1,other,"['Corporate Briefing Session 2025']
+",PSX other announcement,psx_announcement
+2025-10-13,FABL,0.0,1,1,board,"['Board of Directors Meeting of Faysal Bank Limited']
+",PSX board announcement,psx_announcement
+2025-10-14,BAFL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-14,PRL,0.0,1,1,other,"['Corporate Briefing Session']
+",PSX other announcement,psx_announcement
+2025-10-15,BAHL,0.0,1,1,board,"['BAHL-NOTICE OF BOARD MEETING FOR THE PERIOD ENDED SEPTEMBER 30, 2025']
+",PSX board announcement,psx_announcement
+2025-10-15,EFERT,0.0,1,1,earnings,"['Financial Results for the Nine Months Ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-15,HBL,0.0,1,1,earnings,"['Board Meeting for Announcement of Financial Results for the Third Quarter ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-15,HUBC,0.0,1,1,other,"['Certified Copy of the Resolutions Passed by the Members at the Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-10-15,INIL,0.0,1,1,other,"['ELECTION OF DIRECTORS']
+",PSX other announcement,psx_announcement
+2025-10-15,MEBL,0.0,1,1,board,"['NOTICE OF BOARD MEETING AND CLOSED PERIOD - MEEZAN BANK LIMITED']
+",PSX board announcement,psx_announcement
+2025-10-15,UBL,0.0,1,1,earnings,"['Financial Results for the Quarter ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-16,NBP,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-17,CHCC,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-17,MLCF,0.0,1,1,earnings,"['MLCF-Financial Results for the Quarter Ended 30.09.2025']
+",PSX earnings announcement,psx_announcement
+2025-10-17,SEARL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-17,SYS,0.0,1,1,board,"['Notice of 232nd Board Meeting for the Third Quarter ended 30th September 2025']
+",PSX board announcement,psx_announcement
+2025-10-20,ATRL,0.0,1,1,board,"['ARL BOARD MEETING AND CLOSED PERIOD']
+",PSX board announcement,psx_announcement
+2025-10-20,HUBC,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2025-10-20,ILP,0.0,1,1,board,"['Notice of Board Meeting for the First Quarter ended September 30, 2025 / Closed Period']
+",PSX board announcement,psx_announcement
+2025-10-20,INIL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-20,POL,0.0,1,1,board,"['INTIMATION OF BOARD MEETING & NOTIFICATION OF CLOSED PERIOD']
+",PSX board announcement,psx_announcement
+2025-10-20,PPL,0.0,1,1,board,"['Meeting of the Board of Directors and Closed Period']
+",PSX board announcement,psx_announcement
+2025-10-20,PRL,0.0,1,1,earnings,"['Financial Results for the Quarter Ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-20,PSO,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-20,TGL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-21,BAFL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-21,LUCK,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2025-10-21,PAEL,0.0,1,1,other,"['Appointment of Chief Executive Officer (CEO)']
+",PSX other announcement,psx_announcement
+2025-10-21,PAEL,0.0,1,1,other,"['Appointment of Directors']
+",PSX other announcement,psx_announcement
+2025-10-21,PAEL,0.0,1,1,other,"['Change of Company Secretary']
+",PSX other announcement,psx_announcement
+2025-10-22,DGKC,0.0,1,1,board,"['BOARD MEETING']
+",PSX board announcement,psx_announcement
+2025-10-22,HUBC,0.0,1,1,board,"['Board Meeting - The Hub Power Company Limited']
+",PSX board announcement,psx_announcement
+2025-10-22,MCB,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE THIRD QUARTER ENDED SEPTEMBER 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-22,OGDC,0.0,1,1,board,"['Board Meeting and Closed Period']
+",PSX board announcement,psx_announcement
+2025-10-22,PAEL,0.0,1,1,board,"['Board Meeting for the 3rd Quarter ended 30-09-2025 (Un-Audited)']
+",PSX board announcement,psx_announcement
+2025-10-22,PRL,0.0,1,1,other,"['Presentation on Corporate Briefing Session']
+",PSX other announcement,psx_announcement
+2025-10-23,BAHL,0.0,1,1,earnings,"['BAHL - FINANCIAL RESULTS FOR THE NINE MONTHS ENDED SEPTEMBER 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-23,FABL,0.0,1,1,earnings,"['Financial Results for the Third Quarter ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-23,HBL,0.0,1,1,earnings,"['Announcement of Financial Results for the Third Quarter Ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-24,BAHL,0.6,1,1,dividend,"['BAHL - Notice of Book Closure For Entitlement of 3rd Interim Cash Dividend For the Quarter Ended September 30, 2025']
+",PSX dividend announcement,psx_announcement
+2025-10-24,MEBL,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE QUARTER AND NINE MONTHS PERIOD ENDED SEPTEMBER 30, 2025 - MEEZAN BANK LIMITED']
+",PSX earnings announcement,psx_announcement
+2025-10-24,PSO,0.0,1,1,other,"['Resolutions passed and adopted at the 49th AGM']
+",PSX other announcement,psx_announcement
+2025-10-24,SEARL,0.0,1,1,earnings,"['Financial Results for the Quarter Ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-27,ATRL,0.0,1,1,other,"['RESOLUTION PASSED IN ANNUAL GENERAL MEETING']
+",PSX other announcement,psx_announcement
+2025-10-27,CHCC,0.0,1,1,earnings,"['Financial Results for the Quarter Ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-27,FCCL,0.0,1,1,earnings,"['Financial Results for the First Quarter Ended 30th September 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-27,MLCF,0.0,1,1,other,"['MLCF Transmission of Quarterly Financial Statements for the Period Ended 30.09.2025']
+",PSX other announcement,psx_announcement
+2025-10-27,OGDC,0.0,1,1,other,"['RESOLUTIONS PASSED BY THE SHAREHOLDERS IN 28th ANNUAL GENERAL MEETING HELD ON OCTOBER 27, 2025']
+",PSX other announcement,psx_announcement
+2025-10-27,POL,0.0,1,1,other,"['Certified True Copy of Agenda Items Resolved in 74th Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-10-27,SYS,0.0,1,1,earnings,"['Financial Results for the Quarter Ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-28,ATRL,0.0,1,1,other,"['FINANCIAL RESULT FOR THE FIRST QUARTER ENDED SEPTEMBER 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-28,DGKC,0.0,1,1,other,"['Filling of Certified Copy of Resolutions Passed by the Shareholders in their Annual General Meeting (AGM)']
+",PSX other announcement,psx_announcement
+2025-10-28,FABL,0.0,1,1,other,"['Transmission of Quarterly Report for the Third Quarter ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-28,HUBC,0.6,1,1,dividend,"['Credit of Final Cash Dividend']
+",PSX dividend announcement,psx_announcement
+2025-10-28,INIL,0.0,1,1,board,"['Board Meeting In Progress']
+",PSX board announcement,psx_announcement
+2025-10-28,LUCK,0.0,1,1,earnings,"['Financial Results for the 1st Quarter Ended - September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-28,POL,0.0,1,1,earnings,"['Financial Results for the Three Months ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-28,PSO,0.0,1,1,earnings,"['Financial Results for the First Quarter ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-28,TGL,0.0,1,1,earnings,"['Financial Results for the 1st Quarter Ended September 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-28,TGL,0.0,1,1,other,"['Certified To Be True Copy of Resolutions Passed in the 47th Annual General Meeting']
+",PSX other announcement,psx_announcement
+2025-10-29,BAFL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-29,BAHL,0.0,1,1,other,"['BAHL-Transmission of Quarterly Report for the period ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-29,DGKC,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE 1ST QUARTER ENDED SEPTEMBER 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-29,HBL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-29,ILP,0.0,1,1,other,"['Transmission of 1st Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-29,INIL,0.0,1,1,earnings,"['Financial Results for the Quarter Ended 30-09-2025']
+",PSX earnings announcement,psx_announcement
+2025-10-29,MCB,0.0,1,1,other,"['Transmission of Third Quarterly Financial Statements for the period ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-29,NBP,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-29,NBP,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE QUARTER ENDED SEPTEMBER 30, 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-29,OGDC,0.0,1,1,earnings,"['Financial Results for the Quarter Ended September 30 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-29,PPL,0.0,1,1,earnings,"['Financial Results for the Quarter Ended 30 September 2025']
+",PSX earnings announcement,psx_announcement
+2025-10-29,PRL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-29,SEARL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-29,SYS,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-29,TGL,0.0,1,1,other,"['Transmission of Quarterly Report for the 1st Quarter Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,BAFL,0.0,1,1,other,"['Newspaper clipping - Placement of Financial Statements on the Website of the Bank for quarter ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,CHCC,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,DGKC,0.0,1,1,other,"['TRANSMISSION OF QUARTERLY REPORT FOR THE PERIOD ENDED SEPTEMBER 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,DGKC,0.0,1,1,other,"['Latest List of Directors']
+",PSX other announcement,psx_announcement
+2025-10-30,EFERT,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,FCCL,0.0,1,1,other,"['Transmission of 1st Quarterly Accounts for the period Ended 30 Sep 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,FCCL,0.0,1,1,board,"['Emergent Board Meeting of FCCL']
+",PSX board announcement,psx_announcement
+2025-10-30,FFC,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025REVOKED']
+",PSX other announcement,psx_announcement
+2025-10-30,INIL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended 30-09-2025']
+",PSX other announcement,psx_announcement
+2025-10-30,LUCK,0.0,1,1,other,"['Transmission of Quarterly Report for the period ended - September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,MEBL,0.0,1,1,other,"['TRANSMISSION OF QUARTERLY REPORT OF MEEZAN BANK LIMITED FOR THE PERIOD ENDED SEPTEMBER 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,OGDC,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,PAEL,0.0,1,1,other,"['Transmission of 3rd Quarterly Report for the Period Ended 30-09-2025']
+",PSX other announcement,psx_announcement
+2025-10-30,PAEL,0.0,1,1,earnings,"['Financial Results for the 3rd Quarter Ended 30-09-2025 (Un-Audited)']
+",PSX earnings announcement,psx_announcement
+2025-10-30,POL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended 30-09-2025']
+",PSX other announcement,psx_announcement
+2025-10-30,PPL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended 30 September 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,PSO,0.0,1,1,other,"['Transmission of Quarterly Report for the period ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-30,UBL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-31,ATRL,0.0,1,1,other,"['Transmission of Quarterly Financial Statements for the period ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-10-31,FFC,0.0,1,1,other,"['Transmission of Quarterly Report - Quarter Ended September 30, 2025']
+",PSX other announcement,psx_announcement
+2025-11-03,HUBC,0.0,1,1,other,"['Disclosure of Material Information']
+",PSX other announcement,psx_announcement
+2025-11-06,ATRL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2025-11-06,EFERT,0.6,1,1,dividend,"['Credit of third interim dividend']
+",PSX dividend announcement,psx_announcement
+2025-11-06,PAEL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2025-11-06,PRL,0.0,1,1,earnings,"['Board Meeting other than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-11-06,PSO,0.6,1,1,dividend,"['Credit of Final Cash Dividend']
+",PSX dividend announcement,psx_announcement
+2025-11-06,PSO,0.0,1,1,other,"['Appointment of Member - Board of Management']
+",PSX other announcement,psx_announcement
+2025-11-07,DGKC,0.6,1,1,dividend,"['CREDIT OF 20% FINAL CASH DIVIDEND']
+",PSX dividend announcement,psx_announcement
+2025-11-07,ILP,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2025-11-11,BAHL,0.6,1,1,dividend,"['BAHL - Credit of 3rd Interim Cash Dividend']
+",PSX dividend announcement,psx_announcement
+2025-11-12,MCB,0.6,1,1,dividend,"['Text of Advertisement Prior to Publication - Credit of Third Interim Cash Dividend (D-91) 2025']
+",PSX dividend announcement,psx_announcement
+2025-11-12,MLCF,0.0,1,1,earnings,"['MLCF-Board Meeting other than Financial Results 13.11.2025']
+",PSX earnings announcement,psx_announcement
+2025-11-13,HBL,0.6,1,1,dividend,"['Newspaper Advertisement for Credit of Third Interim Cash Dividend D-2025 (III)']
+",PSX dividend announcement,psx_announcement
+2025-11-14,BAHL,0.0,1,1,other,"['CORPORATE BRIEFING SESSION - BANK AL HABIB LIMITED']
+",PSX other announcement,psx_announcement
+2025-11-14,HUBC,0.0,1,1,other,"['Disclosure of Material Information']
+",PSX other announcement,psx_announcement
+2025-11-17,BAFL,0.6,1,1,dividend,"['Disbursement/Credit of Third Interim Cash Dividend (D-32) @ Rs 2.5/- per share (i.e. 25%)']
+",PSX dividend announcement,psx_announcement
+2025-11-17,FABL,0.6,1,1,dividend,"['Credit of Interim Cash Dividend for the Third Quarter ended September 30, 2025']
+",PSX dividend announcement,psx_announcement
+2025-11-17,HBL,0.0,1,1,other,"['Presentation- Corporate Briefing Session of Habib Bank Limited']
+",PSX other announcement,psx_announcement
+2025-11-17,HBL,0.0,1,1,other,"['Corporate Briefing Session of Habib Bank Limited']
+",PSX other announcement,psx_announcement
+2025-11-17,POL,0.0,1,1,other,"['Presentation of Corporate Briefing Session-2025']
+",PSX other announcement,psx_announcement
+2025-11-18,BAFL,0.6,1,1,dividend,"['Newspaper clippings - Credit of third interim cash dividend for the Quarter/nine months period ended September 30, 2025']
+",PSX dividend announcement,psx_announcement
+2025-11-18,BAHL,0.0,1,1,other,"['Presentation of Corporate Briefing Session - Bank AL Habib Limited']
+",PSX other announcement,psx_announcement
+2025-11-18,MEBL,0.6,1,1,dividend,"['PUBLICATION OF NOTICES FOR THE CREDIT OF INTERIM CASH DIVIDEND OF MEEZAN BANK FOR THE YEAR ENDING DECEMBER 31, 2025']
+",PSX dividend announcement,psx_announcement
+2025-11-21,DGKC,0.0,1,1,other,"['Holding of Corporate Briefing Session of D.G. Khan Cement Co. Ltd. FY 2025 in Compliance with the requirements of Clause 5.7.3 of the Rule Book']
+",PSX other announcement,psx_announcement
+2025-11-21,ILP,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2025-11-21,SEARL,0.0,1,1,other,"['Corporate Briefing Session for the year 2025']
+",PSX other announcement,psx_announcement
+2025-11-25,DGKC,0.0,1,1,other,"['Holding of Corporate Briefing Session of D. G. Khan Cement Co. Ltd. FY 2025 in Compliance with the requirements of Clause 5.7.3 of the Rule Book - Sub']
+",PSX other announcement,psx_announcement
+2025-11-25,HUBC,0.6,1,1,dividend,"['Credit of First Interim Cash Dividend (D-57)']
+",PSX dividend announcement,psx_announcement
+2025-11-27,SEARL,0.0,1,1,other,"['Presentation of Corporate Briefing Session for the year 2025']
+",PSX other announcement,psx_announcement
+2025-11-28,SYS,0.0,1,1,earnings,"['Board Meeting Other Than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-12-01,FABL,0.0,1,1,earnings,"['Board Meeting other than Financial Results of Faysal Bank Limited']
+",PSX earnings announcement,psx_announcement
+2025-12-03,MCB,0.0,1,1,earnings,"['Board Meeting Other Than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-12-04,BAFL,0.0,1,1,other,"['Disclosure of Material Information']
+",PSX other announcement,psx_announcement
+2025-12-04,MLCF,0.0,1,1,other,"['MLCF- Notice of Extraordinary General Meeting']
+",PSX other announcement,psx_announcement
+2025-12-08,FFC,0.0,1,1,other,"['Extraordinary General Meeting (EOGM) of Fauji Fertilizer Company Limited']
+",PSX other announcement,psx_announcement
+2025-12-08,SYS,0.0,1,1,earnings,"['Result of Board Meeting Other Than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-12-09,HBL,0.0,1,1,earnings,"['Board Meeting for Agenda Other Than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-12-10,UBL,0.0,1,1,earnings,"['Board Meeting Other Than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-12-11,FABL,0.0,1,1,other,"['ANNOUNCEMENT OF FAYSAL BANK LIMITED']
+",PSX other announcement,psx_announcement
+2025-12-11,MCB,0.0,1,1,board,"['Board Meeting in Progress - MCB Bank Limited']
+",PSX board announcement,psx_announcement
+2025-12-12,FABL,0.0,1,1,other,"['Appointment of Chief Financial Officer of Faysal Bank Limited']
+",PSX other announcement,psx_announcement
+2025-12-12,MCB,0.0,1,1,other,"['Approval of Strategic Plan including Annual Budget of MCB Bank Limited - 2026']
+",PSX other announcement,psx_announcement
+2025-12-12,SYS,0.0,1,1,other,"['Corporate Briefing Session']
+",PSX other announcement,psx_announcement
+2025-12-12,SYS,0.0,1,1,other,"['Corporate Briefing SessionREVOKED']
+",PSX other announcement,psx_announcement
+2025-12-15,PRL,0.0,1,1,earnings,"['Board Meeting other than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-12-16,DGKC,0.0,1,1,earnings,"['EMERGENT BOARD MEETING - OTHER THAN FINANCIAL RESULTS']
+",PSX earnings announcement,psx_announcement
+2025-12-17,FFC,0.0,1,1,earnings,"['Board Meeting Other Than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-12-17,HBL,0.0,1,1,earnings,"['Board Meeting for Agenda Other than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-12-17,LUCK,0.0,1,1,earnings,"['Board Meeting Other than Financial Results']
+",PSX earnings announcement,psx_announcement
+2025-12-18,DGKC,0.0,1,1,earnings,"['EMERGENT BOARD MEETING - OTHER THAN FINANCIAL RESULTS - MATERIAL INFORMATION']
+",PSX earnings announcement,psx_announcement
+2025-12-19,LUCK,0.0,1,1,other,"['Material Information']
+",PSX other announcement,psx_announcement
+2025-12-23,ATRL,0.0,1,1,other,"['MATERIAL INFORMATION']
+",PSX other announcement,psx_announcement
+2025-12-23,PRL,0.0,1,1,other,"['Material Information']
+",PSX other announcement,psx_announcement
+2025-12-24,FFC,0.0,1,1,board,"['Material Information - 238th Board of Directors Meeting of FFC']
+",PSX board announcement,psx_announcement
+2025-12-24,POL,0.0,1,1,other,"['Change of Company Secretary']
+",PSX other announcement,psx_announcement
+2025-12-26,LUCK,0.0,1,1,other,"['CORPORATE BRIEFING SESSION']
+",PSX other announcement,psx_announcement
+2025-12-30,MEBL,0.0,1,1,other,"['APPOINTMENT OF CHIEF EXECUTIVE OFFICER OF MEEZAN BANK LIMITED']
+",PSX other announcement,psx_announcement
+2025-12-31,DGKC,0.0,1,1,other,"['Disclosure of Material Information']
+",PSX other announcement,psx_announcement
+2026-01-01,MLCF,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-01,NBP,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-01,SEARL,0.0,1,1,other,"['Change of Director']
+",PSX other announcement,psx_announcement
+2026-01-02,ATRL,0.0,1,1,other,"['MATERIAL INFORMATION']
+",PSX other announcement,psx_announcement
+2026-01-02,POL,0.0,1,1,other,"['Material Information']
+",PSX other announcement,psx_announcement
+2026-01-02,SYS,0.0,1,1,other,"['SYS | Systems Limited Auditors Certificate']
+",PSX other announcement,psx_announcement
+2026-01-05,MLCF,0.0,1,1,other,"['MLCF-Appointment of Chairman & CEO effective 01.01.2026']
+",PSX other announcement,psx_announcement
+2026-01-05,SEARL,0.0,1,1,earnings,"['Board Meeting Other Than Financial ResultsREVOKED']
+",PSX earnings announcement,psx_announcement
+2026-01-05,SEARL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-06,UBL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-07,BAFL,0.0,1,1,other,"['DISCLOSURE OF MATERIAL INFORMATION- REGULATORY APPROVALS FOR DUE DILIGENCE']
+",PSX other announcement,psx_announcement
+2026-01-08,EFERT,0.0,1,1,other,"['Disclosure of Material Information']
+",PSX other announcement,psx_announcement
+2026-01-09,ILP,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-09,PSO,0.0,1,1,other,"['Change of Member - Board of Management']
+",PSX other announcement,psx_announcement
+2026-01-09,SEARL,0.0,1,1,board,"['Board Meeting Rescheduled']
+",PSX board announcement,psx_announcement
+2026-01-09,SYS,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-09,SYS,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-12,CHCC,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-13,UBL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-14,INIL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-01-14,NBP,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-14,SEARL,0.0,1,1,other,"['Appointment of Charman']
+",PSX other announcement,psx_announcement
+2026-01-16,CHCC,0.0,1,1,other,"['APPROVAL OF 25 MW BATTERY ENERGY STORAGE SYSTEM (BESS) WITH 5.4 MW SOLAR POWER PROJECT']
+",PSX other announcement,psx_announcement
+2026-01-19,FABL,0.3,1,1,rights,"['Injection of PKR 200 million Faysal Bank Ltd in its subsidiary Faysal Islami Currency Exchange Company (Pvt) Ltd by way of Right Shares']
+",PSX rights announcement,psx_announcement
+2026-01-20,LUCK,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-01-20,LUCK,0.0,1,1,other,"['Disclosure of Interest by an Associated Company']
+",PSX other announcement,psx_announcement
+2026-01-20,MEBL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-22,BAFL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-22,FFC,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-01-22,POL,0.0,1,1,earnings,"['Board Meeting Other Than Financial Results']
+",PSX earnings announcement,psx_announcement
+2026-01-23,PRL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-01-26,INIL,0.0,1,1,other,"['CHANGE OF DIRECTOR']
+",PSX other announcement,psx_announcement
+2026-01-27,ILP,0.0,1,1,board,"['Notice of Board Meeting for the Half Year ended December 31, 2025 / Closed Period']
+",PSX board announcement,psx_announcement
+2026-01-27,MCB,0.0,1,1,board,"['Board Meeting - MCB Bank Limited']
+",PSX board announcement,psx_announcement
+2026-01-28,BAFL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-01-28,LUCK,0.0,1,1,earnings,"['Financial Results for the Quarter Ended - December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-01-28,LUCK,0.0,1,1,other,"['CORPORATE BRIEFING SESSION - LUCKY CEMENT LIMITED']
+",PSX other announcement,psx_announcement
+2026-01-28,MEBL,0.0,1,1,board,"['NOTICE OF BOARD MEETING AND CLOSED PERIOD']
+",PSX board announcement,psx_announcement
+2026-01-29,FFC,0.0,1,1,earnings,"['Financial Results for the Year Ended 31 Dec 2025']
+",PSX earnings announcement,psx_announcement
+2026-01-29,INIL,0.0,1,1,earnings,"['INIL | International Industries Limited FINANCIAL RESULTS FOR THE HALF-YEAR ENDED 31-12-2025']
+",PSX earnings announcement,psx_announcement
+2026-01-29,INIL,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE HALF YEAR ENDED 31-12-2025REVOKED']
+",PSX earnings announcement,psx_announcement
+2026-01-29,POL,0.0,1,1,earnings,"['Meeting of Board of Directors other than Financial Results']
+",PSX earnings announcement,psx_announcement
+2026-01-29,POL,0.0,1,1,other,"['Change of Chief Financial Officer']
+",PSX other announcement,psx_announcement
+2026-01-30,NBP,0.0,1,1,other,"['Tenure Completion of Chairman and Directors']
+",PSX other announcement,psx_announcement
+2026-02-02,NBP,0.0,1,1,other,"['MATERIAL INFORMATION - ISSUANCE OF RESTRUCTURING OFFER LETTER TO HASCOL PETROLEUM LIMITED BY NATIONAL BANK OF PAKISTAN']
+",PSX other announcement,psx_announcement
+2026-02-02,NBP,0.0,1,1,other,"['Change of Company Secretary']
+",PSX other announcement,psx_announcement
+2026-02-02,PRL,0.0,1,1,earnings,"['Financial Results for the Half Year ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-03,BAHL,0.0,1,1,board,"['BAHL - Notice of Board Meeting for the year ended December 31, 2025']
+",PSX board announcement,psx_announcement
+2026-02-03,PPL,0.0,1,1,board,"['Meeting of the Board of Directors and Closed Period']
+",PSX board announcement,psx_announcement
+2026-02-04,BAFL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-02-04,FCCL,0.0,1,1,board,"['169th Board Meeting of FCCL - 25 February 2026']
+",PSX board announcement,psx_announcement
+2026-02-04,FCCL,0.0,1,1,other,"['REVOKED']
+",PSX other announcement,psx_announcement
+2026-02-04,ILP,0.6,1,1,dividend,"['Publication of Interim Cash Dividend for the Year Ending on June 30, 2026 in Newspapers']
+",PSX dividend announcement,psx_announcement
+2026-02-04,ILP,0.0,1,1,earnings,"['Financial Results for the Half Year Ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-04,INIL,0.6,1,1,dividend,"['NOTICE OF INTERIM CASH DIVIDEND AND BOOK CLOSURE']
+",PSX dividend announcement,psx_announcement
+2026-02-04,MCB,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE YEAR ENDED DECEMBER 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-04,SYS,0.0,1,1,other,"['Notice of Extraordinary General Meeting']
+",PSX other announcement,psx_announcement
+2026-02-06,ATRL,0.0,1,1,other,"['MATERIAL INFORMATION']
+",PSX other announcement,psx_announcement
+2026-02-09,FABL,0.0,1,1,board,"['Board of Directors Meeting of Faysal Bank Limited']
+",PSX board announcement,psx_announcement
+2026-02-09,HBL,0.0,1,1,other,"['Material Information']
+",PSX other announcement,psx_announcement
+2026-02-09,MEBL,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE YEAR ENDED DECEMBER 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-09,MEBL,0.0,1,1,other,"['Disclosure of Material Information of Meezan Bank']
+",PSX other announcement,psx_announcement
+2026-02-10,CHCC,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-02-10,FFC,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-02-10,HBL,0.0,1,1,earnings,"['Board Meeting for Announcement of Financial Results for the Year Ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-10,PSO,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-02-11,ATRL,0.0,1,1,board,"['ARL BOARD MEETING AND CLOSED PERIOD']
+",PSX board announcement,psx_announcement
+2026-02-11,BAHL,0.0,1,1,earnings,"['BAHL - Financial Results for the Year Ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-11,EFERT,0.0,1,1,board,"['Board Meeting In Progress']
+",PSX board announcement,psx_announcement
+2026-02-11,INIL,0.0,1,1,other,"['Change of Chief Financial Officer']
+",PSX other announcement,psx_announcement
+2026-02-11,PRL,0.0,1,1,earnings,"['Board Meeting other than Financial Results']
+",PSX earnings announcement,psx_announcement
+2026-02-12,EFERT,0.0,1,1,earnings,"['Financial Results for the Year Ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-12,PPL,0.0,1,1,board,"['Change in Time of the Meeting of the Board of Directors']
+",PSX board announcement,psx_announcement
+2026-02-13,EFERT,0.0,1,1,earnings,"['Board Meeting other than Financial Results (Shorter Notice)']
+",PSX earnings announcement,psx_announcement
+2026-02-13,EFERT,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-02-13,OGDC,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-02-13,POL,0.0,1,1,board,"['Intimation of Board Meeting & Notification of Closed Period']
+",PSX board announcement,psx_announcement
+2026-02-13,PPL,0.0,1,1,earnings,"['Financial Results for the Quarter Ended 31 December 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-13,UBL,0.0,1,1,board,"['Board Meeting of United Bank Limited (UBL)']
+",PSX board announcement,psx_announcement
+2026-02-16,BAFL,0.0,1,1,earnings,"['Financial Results for the year ended December 31, 2025 of Bank Alfalah Limited']
+",PSX earnings announcement,psx_announcement
+2026-02-16,DGKC,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-02-16,FCCL,0.0,1,1,other,"['Material Information - Public Announcement of Offer to Acquire Shares and Joint Control of Attock Cement Company Limited (the Target), jointly by Fauj']
+",PSX other announcement,psx_announcement
+2026-02-16,FFC,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-02-16,HUBC,0.0,1,1,board,"['Board Meeting for the Half Year Ended December 31, 2025 - The Hub Power Company Limited']
+",PSX board announcement,psx_announcement
+2026-02-16,MCB,0.6,1,1,dividend,"['Text of Advertisement Prior to Publication - Final Cash Dividend, 2025 and Mandatory Requirement of Valid CNIC and IBAN']
+",PSX dividend announcement,psx_announcement
+2026-02-16,NBP,0.0,1,1,board,"['BOARD MEETING']
+",PSX board announcement,psx_announcement
+2026-02-16,TGL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-02-17,BAHL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-02-17,EFERT,0.0,1,1,earnings,"['MEETING IN PROGRESS (BOARD MEETING OTHER THAN FINANCIAL RESULTS - SHORTER NOTICE']
+",PSX earnings announcement,psx_announcement
+2026-02-17,FCCL,0.0,1,1,other,"['Material Information - Newspapers Publication of Public Announcement of Offer to Acquire Shares and Joint Control of Attock Cement Company Limited (th']
+",PSX other announcement,psx_announcement
+2026-02-17,FCCL,0.0,1,1,other,"['Material Information - Newspapers Publication of Public Announcement of Offer to Acquire Shares and Joint Control of Attock Cement Company Limited (th']
+",PSX other announcement,psx_announcement
+2026-02-17,MLCF,0.0,1,1,board,"['MLCF-Notice of Board Meeting 24.02.2026']
+",PSX board announcement,psx_announcement
+2026-02-17,PPL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-02-17,PRL,0.0,1,1,other,"['Change of Director']
+",PSX other announcement,psx_announcement
+2026-02-17,PSO,0.0,1,1,earnings,"['Financial Results for the half year ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-18,CHCC,0.0,1,1,earnings,"['Financial Results for the Quarter Ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-18,EFERT,0.0,1,1,earnings,"['Board Meeting other than Financial Results-Shorter Notice']
+",PSX earnings announcement,psx_announcement
+2026-02-18,FCCL,0.0,1,1,other,"['Disclosure of Material Information']
+",PSX other announcement,psx_announcement
+2026-02-18,HBL,0.0,1,1,earnings,"['Announcement of Financial Results for the Year Ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-18,INIL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended 31-12-2025']
+",PSX other announcement,psx_announcement
+2026-02-19,CHCC,0.0,1,1,other,"['Notice of Book Closure']
+",PSX other announcement,psx_announcement
+2026-02-19,FABL,0.0,1,1,earnings,"['Financial Results for the year ended December 31, 2025 of Faysal Bank Limited']
+",PSX earnings announcement,psx_announcement
+2026-02-19,HBL,0.0,1,1,other,"['Reappointment of Chief Executive Officer']
+",PSX other announcement,psx_announcement
+2026-02-19,OGDC,0.0,1,1,other,"['OGDCL TESTS GAS-CONDENSATE WELL: DARS WEST-3']
+",PSX other announcement,psx_announcement
+2026-02-19,PPL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended 31 December 2025']
+",PSX other announcement,psx_announcement
+2026-02-19,SEARL,0.0,1,1,board,"['Board Meeting']
+",PSX board announcement,psx_announcement
+2026-02-20,FFC,0.0,1,1,other,"['Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2026-02-20,MCB,0.0,1,1,other,"['Appointment of Chief Financial Officer - MCB Bank Limited']
+",PSX other announcement,psx_announcement
+2026-02-20,MLCF,0.0,1,1,other,"['Disclosure of Material Information']
+",PSX other announcement,psx_announcement
+2026-02-20,OGDC,0.0,1,1,other,"['OIL AND GAS DISCOVERY AT BARAGZAI X-01 (SLANT) OVER LUMSHIWAL FORMATION, NASHPA BLOCK']
+",PSX other announcement,psx_announcement
+2026-02-20,PPL,0.0,1,1,other,"['Discovery of Hydrocarbons from Exploratory Well Baragzai X-01 (Slant) from Lumshiwal Formation in Partner Operated Nashpa Block']
+",PSX other announcement,psx_announcement
+2026-02-23,DGKC,0.0,1,1,earnings,"['Financial Results for the Half Year Ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-23,FFC,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended 31 December 2025']
+",PSX other announcement,psx_announcement
+2026-02-23,INIL,0.6,1,1,dividend,"['Credit of Interim Cash Dividend D-60']
+",PSX dividend announcement,psx_announcement
+2026-02-23,MLCF,0.0,1,1,other,"['MLCF-Disclosure of Material Information 23.02.2026']
+",PSX other announcement,psx_announcement
+2026-02-23,OGDC,0.0,1,1,other,"['OGDC | Oil & Gas Development Company Limited Financial Statement for half year ended 12 31 2025']
+",PSX other announcement,psx_announcement
+2026-02-24,ATRL,0.0,1,1,earnings,"['FINANCIAL RESULTS FOR THE SECOND QUATER ENDED DECEMBER 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-24,ILP,0.0,1,1,other,"['Transmission of Half Year Report for the Period Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-24,NBP,0.0,1,1,board,"['Board Meeting in Progress']
+",PSX board announcement,psx_announcement
+2026-02-24,POL,0.0,1,1,earnings,"['Financial Results for the Six Months ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-24,POL,0.0,1,1,earnings,"['Financial Results for the six months ended December 31, 2025REVOKED']
+",PSX earnings announcement,psx_announcement
+2026-02-24,TGL,0.0,1,1,earnings,"['Financial Results for the Quarter Ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-25,FCCL,0.0,1,1,earnings,"['Financial Results for Six Months Ended on 31 December 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-25,HUBC,0.0,1,1,other,"['Presentation for the Corporate Briefing Session of The Hub Power Company Limited for the half year ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-25,HUBC,0.6,1,1,dividend,"['Newspaper Advertisement of the Notice of Dividend and Book Closure for the Half Year Ended December 31, 2025']
+",PSX dividend announcement,psx_announcement
+2026-02-25,ILP,0.6,1,1,dividend,"['Credit of Interim Cash Dividend for the Half Year Ended December 31, 2025 and Notice for Publication in the Newspapers']
+",PSX dividend announcement,psx_announcement
+2026-02-25,MLCF,0.0,1,1,earnings,"['MLCF-Financial Results as on 31.12.2025']
+",PSX earnings announcement,psx_announcement
+2026-02-25,NBP,0.0,1,1,earnings,"['Financial Results For the Year Ended December 31, 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-25,OGDC,0.0,1,1,other,"['RECEIPT OF EIGHTH INTEREST PAYMENT UNDER TERM FINANCE CERTIFICATES (TFCS) BY POWER HOLDING LIMITED']
+",PSX other announcement,psx_announcement
+2026-02-25,PRL,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-25,PSO,0.0,1,1,other,"['Transmission of Half Yearly Report for the Period Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-25,UBL,0.0,1,1,earnings,"['Financial Results for the Year Ended 31 December 2025']
+",PSX earnings announcement,psx_announcement
+2026-02-25,UBL,0.0,1,1,earnings,"['Financial Results for the Year Ended 31 December 2025REVOKED']
+",PSX earnings announcement,psx_announcement
+2026-02-26,CHCC,0.0,1,1,other,"['Transmission of Quarterly Financial Statements for the Period Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-26,LUCK,0.0,1,1,other,"['Transmission of Quarterly Report for the period ended - December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-26,MEBL,0.0,1,1,other,"['REVISION IN BOOK CLOSURE DATES FOR 30TH ANNUAL GENERAL MEETING - MEEZAN BANK LIMITED']
+",PSX other announcement,psx_announcement
+2026-02-26,OGDC,0.0,1,1,other,"['Transmission of Half Yearly Report for the period ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-26,PPL,0.0,1,1,other,"['Settlement with Presson Descon International (Private) Limited (PDIL) and Descon Engineering Limited (DEL) in respect of Disputes Arising Out of Two E']
+",PSX other announcement,psx_announcement
+2026-02-26,SEARL,0.0,1,1,earnings,"['Financial Results for the Quarter Ended 2025-12-31']
+",PSX earnings announcement,psx_announcement
+2026-02-27,ATRL,0.0,1,1,other,"['Transmission of Quarterly Report for the half year and six months period ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-27,DGKC,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-27,FCCL,0.0,1,1,other,"['Transmission of Half Yearly Accounts for the Period Ended 31 December 2025']
+",PSX other announcement,psx_announcement
+2026-02-27,HUBC,0.0,1,1,other,"['Video Recording of the Corporate Briefing Session of The Hub Power Company Limited for the half year ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-27,HUBC,0.0,1,1,other,"['Transmission of Quarterly Report for the Period Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-02-27,SEARL,0.0,1,1,other,"['Transmission of Half Yearly Financial Statements for the Period Ended 31-12-2025']
+",PSX other announcement,psx_announcement
+2026-02-27,TGL,0.0,1,1,other,"['Transmission of 2nd Quarterly Report for the Period Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-03-02,ATRL,0.0,1,1,other,"['Change of Alternate Director']
+",PSX other announcement,psx_announcement
+2026-03-02,EFERT,0.0,1,1,other,"['RESIGNATION OF CHIEF EXECUTIVE OFFICER']
+",PSX other announcement,psx_announcement
+2026-03-02,MLCF,0.0,1,1,other,"['MLCF-Transmission of Quarterly Financial Statements for the Period Ended 31.12.2025']
+",PSX other announcement,psx_announcement
+2026-03-02,POL,0.0,1,1,other,"['Transmission of Financial Statements for six months ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-03-02,SYS,0.0,1,1,other,"['CERTIFIED COPY OF RESOLUTIONS ADOPTED AT THE EXTRAORDINARY GENERAL MEETING']
+",PSX other announcement,psx_announcement
+2026-03-04,BAFL,0.0,1,1,other,"['Notice of the 34th Annual General Meeting of Bank Alfalah Limited']
+",PSX other announcement,psx_announcement
+2026-03-04,EFERT,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-03-04,EFERT,0.0,1,1,other,"['Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2026-03-04,FABL,0.0,1,1,other,"['Notice of 31st Annual General Meeting of Faysal Bank Limited']
+",PSX other announcement,psx_announcement
+2026-03-04,MEBL,0.0,1,1,other,"['NOTICE OF 30TH ANNUAL GENERAL MEETING PRIOR TO ITS PUBLICATION - MEEZAN BANK LIMITED']
+",PSX other announcement,psx_announcement
+2026-03-04,OGDC,0.0,1,1,other,"['OIL AND GAS DISCOVERY AT BARAGZAI X-01 (SLANT) OVER LOCKHART LIMESTONE, NASHPA BLOCK, KHYBER PAKHTUNKHWA, PAKISTAN']
+",PSX other announcement,psx_announcement
+2026-03-04,PPL,0.0,1,1,other,"['Discovery of Hydrocarbons from Exploratory Well Baragzai X-01 (Slant) from Lockhart Limestone in Partner Operated Nashpa Block']
+",PSX other announcement,psx_announcement
+2026-03-04,UBL,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-03-04,UBL,0.0,1,1,other,"['Notice of Annual General Meeting of United Bank Limited']
+",PSX other announcement,psx_announcement
+2026-03-05,BAFL,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-03-05,BAFL,0.0,1,1,other,"['Newspaper Clippings in respect of Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2026-03-05,FABL,0.0,1,1,other,"['Transmission of Annual Report for the year ended December 31, 2025 of Faysal Bank Limited']
+",PSX other announcement,psx_announcement
+2026-03-05,FABL,0.0,1,1,other,"['Notice of 31 Annual General Meeting of Faysal Bank Limited']
+",PSX other announcement,psx_announcement
+2026-03-05,MCB,0.0,1,1,other,"['Text of Advertisement Prior to Publication - Notice of 78th AGM of MCB Bank Limited']
+",PSX other announcement,psx_announcement
+2026-03-05,MEBL,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended December 31, 2025 - Meezan Bank Limited']
+",PSX other announcement,psx_announcement
+2026-03-05,MEBL,0.0,1,1,other,"['NOTICE OF 30th ANNUAL GENERAL MEETING - MEEZAN BANK LIMITED']
+",PSX other announcement,psx_announcement
+2026-03-05,PRL,0.0,1,1,earnings,"['Board Meeting other than Financial Results']
+",PSX earnings announcement,psx_announcement
+2026-03-05,UBL,0.0,1,1,other,"['DISCLOSURE OF INTEREST BY THE DIRECTORS, CEO, EXECUTIVES, THEIR SPOUSES AND SUBSTANTIAL SHAREHOLDERS OF LISTED COMPANIES']
+",PSX other announcement,psx_announcement
+2026-03-06,BAHL,0.0,1,1,other,"['BAHL-Transmission of Annual Report for the Year Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-03-06,BAHL,0.0,1,1,other,"['BAHL - Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2026-03-06,HBL,0.0,1,1,other,"['HBL | Habib Bank Limited Transmission of Annual Report for the Year Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-03-06,HBL,0.0,1,1,other,"['Notice of 84th Annual General Meeting of Habib Bank Limited - Prior to Publication']
+",PSX other announcement,psx_announcement
+2026-03-06,ILP,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-03-06,MCB,0.0,1,1,other,"['Transmission of Annual Report for the year ended December 31, 2025 - MCB Bank Limited']
+",PSX other announcement,psx_announcement
+2026-03-06,MCB,0.0,1,1,other,"['Newspaper Cuttings of Notice of 78th Annual General Meeting - MCB Bank Limited']
+",PSX other announcement,psx_announcement
+2026-03-06,MCB,0.0,1,1,other,"['Notice of 78th Annual General Meeting - MCB Bank Limited']
+",PSX other announcement,psx_announcement
+2026-03-06,NBP,0.0,1,1,other,"['NOTICE OF 77TH ANNUAL GENERAL MEETING OF NATIONAL BANK OF PAKISTAN (PRIOR TO PUBLICATION)']
+",PSX other announcement,psx_announcement
+2026-03-06,PAEL,0.0,1,1,board,"['Board Meeting for the Year ended 31-12-2025']
+",PSX board announcement,psx_announcement
+2026-03-09,CHCC,0.6,1,1,dividend,"['Credit of Interim Cash Dividend']
+",PSX dividend announcement,psx_announcement
+2026-03-09,HUBC,0.0,1,1,other,"['Mandatory Shariah Disclosures for the half year ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-03-09,NBP,0.0,1,1,other,"['Transmission of Annual Report for the Year Ended December 31, 2025']
+",PSX other announcement,psx_announcement
+2026-03-09,NBP,0.0,1,1,other,"['Notice of Annual General Meeting']
+",PSX other announcement,psx_announcement
+2026-03-09,UBL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-03-10,BAHL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-03-10,FFC,0.0,1,1,other,"['First Corporate Briefing - 2026 (Virtual)']
+",PSX other announcement,psx_announcement
+2026-03-10,LUCK,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-03-11,EFERT,0.0,1,1,other,"['PUBLICATION OF POSTAL BALLOT AND PROVISION OF ELECTRONIC VOTING FOR AGM']
+",PSX other announcement,psx_announcement
+2026-03-11,ILP,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-03-12,MEBL,0.0,1,1,other,"['DISCLOSURE OF INTEREST BY RELEVANT PERSONS HOLDING COMPANY SHARES UNDER PSX REGULATION 5.6.4']
+",PSX other announcement,psx_announcement
+2026-03-12,MEBL,0.0,1,1,other,"['PUBLICATION OF NOTICES FOR THE PROCEDURE FOR ELECTRONIC VOTING FACILITY AND VOTING THROUGH POSTAL BALLOT']
+",PSX other announcement,psx_announcement
+2026-03-12,MLCF,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-03-12,PPL,0.6,1,1,dividend,"['Credit of 2nd Interim Cash Dividend 2025-26']
+",PSX dividend announcement,psx_announcement
+2026-03-12,PRL,0.0,1,1,other,"['APPOINTMENT OF MANAGING DIRECTOR & CHIEF EXECUTIVE OFFICER']
+",PSX other announcement,psx_announcement
+2026-03-13,FFC,0.0,1,1,other,"['Presentation of First Corporate Briefing 2026']
+",PSX other announcement,psx_announcement
+2026-03-13,FFC,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-03-13,OGDC,0.0,1,1,other,"['APPOINTMENT OF DIRECTOR']
+",PSX other announcement,psx_announcement
+2026-03-13,UBL,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-03-16,CHCC,0.0,1,1,other,"['Disclosure of Interest by a Director CEO, or Executive of a listed company and their Spouses and the Substantial Shareholders u/c 5.6.1.(d) of PSX Reg']
+",PSX other announcement,psx_announcement
+2026-03-16,TGL,0.6,1,1,dividend,"['Credit of Interim Cash Dividend']
+",PSX dividend announcement,psx_announcement

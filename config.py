@@ -14,7 +14,12 @@ TFT_CSV       = DATA_DIR / "stocksense_tft_final.csv"
 TFT_READY_CSV = DATA_DIR / "tft_ready.csv"
 
 # ── API Keys ───────────────────────────────────────────────────────────────
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_API_KEY_1 = os.getenv("GEMINI_API_KEY_1", "")
+GEMINI_API_KEY_2 = os.getenv("GEMINI_API_KEY_2", "")
+# Fallback to single key if only one is provided
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", GEMINI_API_KEY_1)
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "")
 
 # ── Stocks ─────────────────────────────────────────────────────────────────
 KSE30_STOCKS = [
@@ -97,4 +102,6 @@ SOURCE_WEIGHTS = {
     'psx_announcement': 2.0,
     'psx_company':      1.5,
     'gemini_news':      1.2,
+    'groq_compound':    1.2,
+    'groq_tavily':      1.2,
 }

@@ -66,5 +66,36 @@ MANIFEST
 Thumbs.db
 .DS_Store
 
-#old model 
+# Old model directory
+old_model/
+old\ model/
 old model/
+
+# Temporary & log files
+*.log
+backfill_output.log
+*.tmp
+*.cache
+
+# Old documentation (keep only README.md)
+Status.md
+TAVILY_GROQ_SETUP.md
+PSX_SCRAPER_*.md
+setup_notes.md
+progress.md
+old_*.md
+
+# IDE temporary files
+.claude/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Data artifacts (keep only processed CSVs)
+data/raw/
+data/interim/
+*.pkl
+*.pickle
+*.joblib

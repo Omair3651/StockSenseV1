@@ -53,6 +53,26 @@ def _base_score(ann_type: str, text: str) -> float:
     return ANNOUNCEMENT_SCORES.get(ann_type, 0.0)
 
 
+def _extract_csrf(html: str) -> str:
+    """
+    Extract CSRF token from PSX page HTML.
+    Looks for: <meta name="csrf-token" content="..."> or <input name="_token" value="...">
+    """
+    soup = BeautifulSoup(html, "lxml")
+
+    # Try meta tag first (common in Laravel)
+    meta = soup.find("meta", {"name": "csrf-token"})
+    if meta and meta.get("content"):
+        return meta.get("content")
+
+    # Try input field as fallback
+    token_input = soup.find("input", {"name": "_token"})
+    if token_input and token_input.get("value"):
+        return token_input.get("value")
+
+    return ""
+
+
 # ── Announcements scraper ──────────────────────────────────────────────────
 
 def get_announcements_from_company_page(ticker: str, max_records: int = 20) -> list[dict]:
@@ -153,35 +173,51 @@ def get_announcements(ticker: str,
     records = []
     base_url = "https://dps.psx.com.pk/announcements"
     endpoint_failed = False
+    csrf_token = ""
+
+    # Step 1: GET the announcements page once to establish session + extract CSRF token
+    try:
+        init_resp = session.get(base_url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT)
+        if init_resp.status_code == 200:
+            csrf_token = _extract_csrf(init_resp.text)
+            if csrf_token:
+                print(f"  [psx_official] {ticker}: CSRF token extracted, starting pagination...")
+        else:
+            print(f"  [psx_official] {ticker}: initial GET failed (HTTP {init_resp.status_code}), attempting POST without token")
+    except requests.RequestException as e:
+        print(f"  [psx_official] {ticker}: initial GET failed ({e}), attempting POST without token")
 
     for page in range(1, max_pages + 1):
-        # Try different payload formats and methods
+        # Prepare payload with CSRF token if available
         payload = {
             "symbol": ticker,
             "from":   from_date,
             "to":     to_date,
             "page":   page,
         }
-        
+        if csrf_token:
+            payload["_token"] = csrf_token
+
         try:
-            # Add Referer header for this specific request
+            # Prepare headers with AJAX indicators
             headers = REQUEST_HEADERS.copy()
             headers['Referer'] = 'https://dps.psx.com.pk/announcements'
             headers['Content-Type'] = 'application/x-www-form-urlencoded'
-            
-            # First try POST (standard for filtered searches)
+            headers['X-Requested-With'] = 'XMLHttpRequest'
+
+            # POST with CSRF token + AJAX header
             resp = session.post(base_url, data=payload, headers=headers, timeout=REQUEST_TIMEOUT)
-            
-            # If 500 error, try GET with query params
+
+            # If 500 error, try GET as fallback
             if resp.status_code == 500:
                 resp = session.get(base_url, params=payload, headers=headers, timeout=REQUEST_TIMEOUT)
-            
+
             # Both failed, mark as failed
             if resp.status_code >= 400:
                 print(f"  [psx_official] {ticker} page {page}: HTTP {resp.status_code}")
                 endpoint_failed = True
                 break
-                
+
             resp.raise_for_status()
         except requests.RequestException as e:
             print(f"  [psx_official] {ticker} page {page} request failed: {e}")
