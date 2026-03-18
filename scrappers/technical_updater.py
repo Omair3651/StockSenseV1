@@ -108,7 +108,7 @@ def main():
 
     print("--- Reading Master Data ---")
     master_df = pd.read_csv(MASTER_CSV_PATH)
-    master_df['Date'] = pd.to_datetime(master_df['Date'], format='mixed', dayfirst=True).dt.date
+    master_df['Date'] = pd.to_datetime(master_df['Date']).dt.date
     
     last_date = master_df['Date'].max()
     today = date.today()
@@ -152,7 +152,7 @@ def main():
     stocks = pd.merge(stocks, kse100, on='Date', how='left')
     
     print("Fetching new USD/PKR rates...")
-    usd = yf.download("PKR=X", start=last_date, end=today + timedelta(days=1))['Close'].reset_index()
+    usd = yf.download("PKR=X", start=last_date, end=today + timedelta(days=1), progress=False)['Close'].reset_index()
     usd.columns = ['Date', 'USD_PKR']
     usd['Date'] = pd.to_datetime(usd['Date']).dt.date
     stocks = pd.merge(stocks, usd, on='Date', how='left')
