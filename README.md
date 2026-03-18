@@ -49,34 +49,76 @@ StockSense V1 orchestrates end-to-end sentiment analysis and machine learning-re
 
 ```
 StockSenseV1/
-├── README.md                          # This file
-├── config.py                          # Configuration: tickers, weights, paths
-├── requirements.txt                   # Python dependencies
-├── .gitignore                         # Git ignore patterns
+├── README.md                                  # This file
+├── config.py                                  # Configuration: tickers, weights, paths
+├── requirements.txt                           # Python dependencies
+├── .gitignore                                 # Git ignore patterns
 │
-├── scrappers/                         # Data collection scripts
-│   ├── psx_official.py               # PSX announcements + company pages
-│   ├── technical_updater.py          # Update OHLCV + indicators to today
-│   ├── sentiment_backfill.py         # Historical sentiment (PSX only)
-│   ├── Gemini_Sentiment.py           # Tavily+Groq sentiment scorer (fallback)
-│   └── (.claude/)                     # Internal state
+├── scrappers/                                 # Data collection scripts
+│   ├── psx_official.py                       # PSX announcements + company pages
+│   ├── technical_updater.py                  # Update OHLCV + indicators to today
+│   ├── sentiment_backfill.py                 # Historical sentiment (PSX announcements)
+│   ├── company_historic_announcements.py    # ⭐ NEW: Full announcement history (all months/years)
+│   ├── Gemini_Sentiment.py                  # Tavily+Groq sentiment scorer (fallback)
+│   └── (.claude/)                            # Internal state
 │
-├── pipeline.py                        # Daily sentiment pipeline orchestrator
-├── merge_datasets.py                  # Phase 2: Merge + validate
+├── pipeline.py                                # Daily sentiment pipeline orchestrator
+├── merge_datasets.py                          # Phase 2: Merge + validate
 │
 └── data/
-    ├── raw/                           # Raw PSX data (if any)
+    ├── raw/                                   # Raw PSX data (if any)
     └── processed/
-        ├── stocksense_tft_final.csv    # Technical data (123k rows)
-        ├── sentiment_history.csv       # Historical sentiment (435 records)
-        ├── sentiment_daily.csv         # Today's sentiment (30 rows)
-        ├── sentiment_all.csv           # Unified sentiment intermediate
-        └── tft_ready.csv               # ⭐ FINAL OUTPUT (ready for model)
+        ├── stocksense_tft_final.csv           # Technical data (123k rows)
+        ├── sentiment_history.csv              # Historical sentiment (435 records)
+        ├── sentiment_daily.csv                # Today's sentiment (30 rows)
+        ├── sentiment_all.csv                  # Unified sentiment intermediate
+        ├── company_historic_announcements.csv # ⭐ NEW: Complete announcement archive
+        └── tft_ready.csv                      # ⭐ FINAL OUTPUT (ready for model)
 ```
 
 ---
 
 ## 🚀 Quick Start
+
+### Complete Data Collection Workflow
+
+**Run these scripts in order to build a complete dataset:**
+
+```bash
+# Step 1: Update technical data to today
+python scrappers/technical_updater.py
+
+# Step 2: Scrape ALL historical announcements (all months/years for each ticker)
+# ⭐ This takes longer but gives you complete sentiment history
+python scrappers/company_historic_announcements.py
+
+# Step 3: Build comprehensive sentiment history from the announcements archive
+python scrappers/sentiment_backfill.py --from 2008-01-01 --to 2026-03-19
+
+# Step 4: Get today's news sentiment (Tavily+Groq)
+python pipeline.py
+
+# Step 5: Merge all sources into final training dataset
+python merge_datasets.py
+
+# Done! Your final dataset: data/processed/tft_ready.csv
+```
+
+**Time estimates:**
+- Step 1 (technical update): 2-5 minutes
+- Step 2 (historic announcements): 30-60 minutes (paginate through all tickers)
+- Step 3 (sentiment backfill): 1-2 minutes
+- Step 4 (daily sentiment): 2-3 minutes
+- Step 5 (merge & validate): 1 minute
+
+**Quick test run (on 1 ticker only):**
+```bash
+python scrappers/company_historic_announcements.py --ticker OGDC
+python pipeline.py --ticker OGDC
+python merge_datasets.py
+```
+
+---
 
 ### 1. Installation
 
@@ -241,15 +283,49 @@ python scrappers/sentiment_backfill.py --from 2024-01-01 --to 2024-12-31
 - 435 records with PSX announcements + rule-based sentiment scoring
 - Rule: dividend=+0.6, rights=+0.3, earnings/board/other=0.0
 
-### Gemini_Sentiment.py
-Daily news sentiment scoring (fallback to Gemini if Groq fails).
+### company_historic_announcements.py ⭐ NEW
+**Complete announcement history scraper** — Pulls ALL historical announcements for each KSE-30 stock.
+Paginates through the entire PSX announcements portal by ticker, collecting every month/year.
 
 ```bash
-python scrappers/Gemini_Sentiment.py
+# Full run: scrape all 30 tickers (takes ~30-60 minutes)
+python scrappers/company_historic_announcements.py
+
+# Test on first 5 tickers
+python scrappers/company_historic_announcements.py --limit 5
+
+# Single ticker
+python scrappers/company_historic_announcements.py --ticker OGDC
 ```
 
-Primary: **Tavily Search API** (1000 free searches/month) + **Groq Llama 3.3 70B** (free, no rate limit)
-Fallback: Gemini Flash 2.5 (free, rate-limited)
+**Output:** `data/processed/company_historic_announcements.csv`
+- Complete archive: Symbol, Date, Time, CompanyName, Title
+- Every announcement on record for each ticker
+- Sorted by date (oldest to newest)
+- Ready to feed into sentiment conversion
+
+**Convert to sentiment records:**
+After collecting the archive, convert to sentiment records with rule-based scoring:
+```bash
+python scrappers/sentiment_from_historic.py
+```
+
+**Output:** `data/processed/sentiment_history_from_archive.csv`
+- Sentiment records with automatic classification (dividend/earnings/rights/board/other)
+- Ready to merge into final training dataset
+
+### sentiment_backfill.py
+Backfill historical sentiment from PSX announcements (2024–2026).
+
+```bash
+python scrappers/sentiment_backfill.py
+python scrappers/sentiment_backfill.py --ticker OGDC
+python scrappers/sentiment_backfill.py --from 2024-01-01 --to 2024-12-31
+```
+
+**Output:** `data/processed/sentiment_history.csv`
+- 435 records with PSX announcements + rule-based sentiment scoring
+- Rule: dividend=+0.6, rights=+0.3, earnings/board/other=0.0
 
 ### pipeline.py
 Orchestrate daily sentiment pipeline.
@@ -267,6 +343,24 @@ python pipeline.py --ticker OGDC
 
 **Output:** `data/processed/sentiment_daily.csv`
 - 30 rows (one per ticker) with merged PSX + news sentiment
+
+### Gemini_Sentiment.py
+Daily news sentiment scoring (fallback to Gemini if Groq fails).
+
+```bash
+# Score all 30 tickers
+python scrappers/Gemini_Sentiment.py --all
+
+# Score single ticker
+python scrappers/Gemini_Sentiment.py --ticker OGDC
+```
+
+**Primary flow:** Tavily Search API → Groq Llama 3.3 70B
+- Tavily: 1000 free searches/month ✅ (sufficient for 30 tickers/day)
+- Groq: Free tier, no rate limits ✅
+
+**Fallback:** Gemini Flash 2.5 (if Groq fails)
+- Gemini: 15 requests/min, free tier
 
 ### merge_datasets.py ⭐
 **Phase 2 Script** — Merge all three sources into final TFT dataset.
@@ -445,8 +539,10 @@ See [requirements.txt](requirements.txt) for full list.
 | [pipeline.py](pipeline.py) | Daily sentiment orchestrator |
 | [merge_datasets.py](merge_datasets.py) | Phase 2: Dataset merge + validation |
 | [scrappers/psx_official.py](scrappers/psx_official.py) | PSX announcements + fallback |
+| [scrappers/company_historic_announcements.py](scrappers/company_historic_announcements.py) | ⭐ Complete announcement history scraper |
+| [scrappers/sentiment_from_historic.py](scrappers/sentiment_from_historic.py) | Convert announcements to sentiment |
+| [scrappers/sentiment_backfill.py](scrappers/sentiment_backfill.py) | Build comprehensive sentiment from announcements |
 | [scrappers/technical_updater.py](scrappers/technical_updater.py) | Update OHLCV to today |
-| [scrappers/sentiment_backfill.py](scrappers/sentiment_backfill.py) | Historical sentiment (2024+) |
 | [scrappers/Gemini_Sentiment.py](scrappers/Gemini_Sentiment.py) | News sentiment scorer |
 | [.gitignore](.gitignore) | Git ignore patterns |
 | [requirements.txt](requirements.txt) | Python dependencies |
@@ -459,7 +555,8 @@ See [requirements.txt](requirements.txt) for full list.
 |---------|------|--------|-------|
 | V1.0 | Mar 2026 | ✅ Complete | Phase 1: Data collection |
 | V1.1 | Mar 2026 | ✅ Complete | Phase 2: Merge + validate |
-| V1.2 | TBD | 🔄 In Progress | Phase 3: TFT model training |
+| V1.2 | Mar 19 2026 | ✅ Complete | Added comprehensive announcement scraper |
+| V1.3 | TBD | 🔄 In Progress | Phase 3: TFT model training |
 
 ---
 
@@ -475,3 +572,5 @@ For issues, enhancements, or questions:
 **Last Updated:** March 16, 2026
 **Current Phase:** Phase 2 ✅ (Merge & Validation Complete)
 **Next Phase:** Phase 3 (TFT Model Training)
+
+pip install pygooglenews newspaper3k pandas lxml requests beautifulsoup4
